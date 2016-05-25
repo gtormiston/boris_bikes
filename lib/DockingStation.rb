@@ -4,14 +4,14 @@ class DockingStation
 	attr_reader :bike
 
 	def release_bike
-		Bike.new
+		@bike
 	end
-
-	# def bike(value)
-	# 	@bike = value
-	# end
 
 	def dock(bike)
 		@bike = bike
+	end
+
+	def bikes
+			raise "There are no bikes available"
 	end
 end
