@@ -4,7 +4,7 @@ require 'DockingStation'
 
 describe DockingStation do
 
-	let(:bike) {Bike.new}
+	let(:bike) { double(:bike) }
 
 	describe "initialization" do
 
@@ -50,7 +50,6 @@ describe DockingStation do
 	end
 
 	describe "#dock" do
-
 		it "docks a bike and returns docked bike" do
 			expect(subject.dock(bike)).to eq bike
 		end
