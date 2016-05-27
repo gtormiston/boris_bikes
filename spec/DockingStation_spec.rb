@@ -29,11 +29,14 @@ describe DockingStation do
 	describe "#release_bike" do
 
 		it "releases a bike" do
+			allow(bike).to receive(:working?).and_return(true)
 			subject.dock(bike)
 			expect(subject.release_bike).to be_working
 		end
 
 		it "does not release a broken bike" do
+			allow(bike).to receive(:report_broken).and_return(true)
+			allow(bike).to receive(:working?).and_return(false)
 			bike.report_broken
 			subject.dock(bike)
 			#expect(subject.release_bike).not_to be_working
